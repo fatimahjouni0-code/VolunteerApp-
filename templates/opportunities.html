@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Opportunities</title>
+</head>
+<body>
+    <h1>Available Volunteer Opportunities</h1>
+    <p>Below is a list of current initiatives looking for support:</p>
+
+    <ul>
+        {% for opp in opportunities_list %}
+            <li>
+                <strong>{{ opp.title }}</strong> <br>
+                📍 Location: {{ opp.location }} <br>
+                📅 Date: {{ opp.date }}
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Go Back Home</a>
+</body>
+</html>
