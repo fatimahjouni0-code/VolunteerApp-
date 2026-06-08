@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer Opportunities</title>
+    <title>Available Initiatives</title>
+    <!-- Modern Visual Framework (Bootstrap) -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
 </head>
-<body>
-    <h1>Available Volunteer Opportunities</h1>
-    <p>Below is a list of current initiatives looking for support:</p>
+<body class="bg-light">
 
-    <ul>
-        {% for opp in opportunities_list %}
-            <li>
-                <strong>{{ opp.title }}</strong> <br>
-                📍 Location: {{ opp.location }} <br>
-                📅 Date: {{ opp.date }}
-            </li>
-            <br>
-        {% endfor %}
-    </ul>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🌟 VolunteerMatch</a>
+        </div>
+    </nav>
 
-    <a href="/">Go Back Home</a>
+    <!-- Page Header Title -->
+    <div class="container my-4">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold text-dark">Explore Volunteer Initiatives</h1>
+            <p class="text-muted">Find meaningful projects looking for youth support in your community.</p>
+        </div>
+
+        <!-- ⚡ THE PYTHON LOOP: This dynamically generates cards for every item in your backend list -->
+        <div class="row g-4">
+            {% for opportunity in opportunities %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 rounded-3">
+                    <div class="card-body d-flex flex-column p-4">
+                        <span class="badge bg-primary-subtle text-primary align-self-start mb-2 px-3 py-2 rounded-pill fw-semibold">Active Initiative</span>
+                        <h3 class="card-title h5 fw-bold text-dark mb-2">{{ opportunity.title }}</h3>
+                        <p class="card-text text-muted small flex-grow-1">Join your local community team and make a direct social impact this weekend.</p>
+                        
+                        <div class="border-top pt-3 mt-3 d-flex justify-content-between align-items-center">
+                            <span class="text-secondary small fw-medium">📅 {{ opportunity.date }}</span>
+                            <button class="btn btn-primary btn-sm px-3 fw-bold rounded-2 shadow-sm">Join Team</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
 </body>
 </html>
